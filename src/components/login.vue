@@ -40,7 +40,7 @@
       onSubmit(form) {
         this.$refs[form].validate((valid) => {
           if (valid) {
-            alert(valid)
+            this.$router.push('/index')
           } else {
             return false
           }
