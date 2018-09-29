@@ -1,25 +1,31 @@
 <template>
-  <el-container style="min-height: 100%; background-color: #324057;"">
-    <el-aside width="200px" style="min-height: 100%; background-color: #324057;">
-      <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" 
+  <el-container style="min-height: 100%; background-color: #324057;">
+    <el-aside width="200px" style="min-height: 100%; background-color: #545c64;">
+      <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" 
       background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
-        <el-submenu index="1">
+        <el-menu-item index="1">
+          <span slot="title">首页</span>
+        </el-menu-item>
+        <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>导航一</span>
           </template>
           <el-menu-item-group>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+            <el-menu-item index="2-1">
+              <i class="el-icon-location"></i>
+              <span>选项1</span>
+            </el-menu-item>
+            <el-menu-item index="2-2">选项2</el-menu-item>
           </el-menu-item-group>
-            <el-menu-item index="1-3">选项3</el-menu-item>
+            <el-menu-item index="2-3">选项3</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="2">
+        <el-menu-item index="3">
           <i class="el-icon-menu"></i>
           <span slot="title">导航二</span>
         </el-menu-item>
-        <el-menu-item index="3" disabled>
+        <el-menu-item index="4" disabled>
           <i class="el-icon-document"></i>
           <span slot="title">导航三</span>
         </el-menu-item>
@@ -31,17 +37,18 @@
     </el-aside>
     <el-container>
       <el-header>
-        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-          <el-radio-button :label="false">展开</el-radio-button>
-          <el-radio-button :label="true">收起</el-radio-button>
-        </el-radio-group>
+        <el-col :span="10" class="logo">
+          <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
+            <el-radio-button :label="false">展开</el-radio-button>
+            <el-radio-button :label="true">收起</el-radio-button>
+          </el-radio-group>
+        </el-col>
       </el-header>
       <el-table
         ref="multipleTable"
         :data="tableData3"
         tooltip-effect="dark"
-        style="width: 100%"
-        @selection-change="handleSelectionChange">
+        style="width: 100%">
         <el-table-column
           type="selection"
           width="55">
@@ -85,6 +92,7 @@
 export default {
   data() {
     return {
+      isCollapse: true,
       tableData3: [{
         date: '2016-05-03',
         name: '王小虎',
@@ -120,6 +128,12 @@ export default {
   methods: {
     togoLogin() {
       this.$router.push('/login')
+    },
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
   }
 }
@@ -136,8 +150,6 @@ export default {
   .el-aside {
     background-color: #D3DCE6;
     color: #333;
-    text-align: center;
-    min-height: 100%;
   }
   
   .el-main {
@@ -161,7 +173,32 @@ export default {
   }
   
   .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
+    width: 210px;
     min-height: 400px;
+  }
+
+  .logo {
+    //width:230px;
+    height:60px;
+    font-size: 22px;
+    padding-left:20px;
+    padding-right:20px;
+    border-color: rgba(238,241,146,0.3);
+    border-right-width: 1px;
+    border-right-style: solid;
+    img {
+      width: 40px;
+      float: left;
+      margin: 10px 10px 10px 18px;
+    }
+    .txt {
+      color:#fff;
+    }
+  }
+  .logo-width{
+    width:230px;
+  }
+  .logo-collapse-width{
+    width:60px
   }
 </style>
