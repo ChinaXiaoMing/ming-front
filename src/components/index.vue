@@ -1,7 +1,7 @@
 <template>
   <el-container style="min-height: 100%; background-color: #324057;">
-    <el-aside width="200px" style="min-height: 100%; background-color: #545c64;">
-      <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" 
+    <el-aside style="min-height: 100%; background-color: #545c64;">
+      <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
       background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <el-menu-item index="1">
           <span slot="title">首页</span>
@@ -139,7 +139,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+  body {
+    margin: 0px;
+  }
+
   .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
@@ -159,7 +163,7 @@ export default {
     line-height: 160px;
   }
   
-  body > .el-container {
+  .el-container {
     margin-bottom: 40px;
   }
   

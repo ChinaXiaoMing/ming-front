@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import index from '@/components/index'
 import login from '@/components/login'
 import demo from '@/components/demo'
+import layout from '@/components/layout'
 
 Vue.use(Router)
 
@@ -30,6 +31,11 @@ export default new Router({
       path: '/demo',
       name: 'demo',
       component: demo
+    },
+    {
+      path: '/layout',
+      name: 'layout',
+      component: layout
     }
   ]
 })
