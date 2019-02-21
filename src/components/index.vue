@@ -18,6 +18,7 @@
             </el-menu-item>
             <el-menu-item index="2-2">选项2</el-menu-item>
           </el-menu-item-group>
+          <el-menu-item-group>
             <el-menu-item index="2-3">选项3</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -182,7 +183,7 @@ export default {
   }
 
   .logo {
-    //width:230px;
+    width:230px;
     height:60px;
     font-size: 22px;
     padding-left:20px;
@@ -190,19 +191,11 @@ export default {
     border-color: rgba(238,241,146,0.3);
     border-right-width: 1px;
     border-right-style: solid;
-    img {
-      width: 40px;
-      float: left;
-      margin: 10px 10px 10px 18px;
-    }
-    .txt {
-      color:#fff;
-    }
   }
-  .logo-width{
+  .logo-width {
     width:230px;
   }
-  .logo-collapse-width{
+  .logo-collapse-width {
     width:60px
   }
 </style>

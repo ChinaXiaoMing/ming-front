@@ -19,7 +19,7 @@
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>我的消息</el-dropdown-item>
             <el-dropdown-item>设置</el-dropdown-item>
-            <el-dropdown-item divided @click.native="logout">退出登录</el-dropdown-item>
+            <el-dropdown-item divided @click.native="loginout">退出登录</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </el-col>
@@ -207,7 +207,14 @@
       },
       //退出登录
       loginout: function () {
-        this.$router.push('/login');
+        this.$axios.get('http://localhost:8082/user')
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+        //this.$router.push('/login');
       }
     }
   }
