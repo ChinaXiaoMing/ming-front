@@ -1,6 +1,6 @@
 <template>
-  <el-container style="min-height: 100%; background-color: #324057;">
-    <el-aside style="min-height: 100%; background-color: #545c64;">
+  <el-container style="height: 100%; background-color: #324057;">
+    <el-aside style="height: 100%; background-color: #545c64;">
       <el-menu default-active="1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse"
       background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
         <el-menu-item index="1">
@@ -91,7 +91,7 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       isCollapse: true,
       tableData3: [{
@@ -124,25 +124,26 @@ export default {
         address: '上海市普陀区金沙江路 1518 弄'
       }],
       multipleSelection: []
-    }  
+    }
   },
   methods: {
-    togoLogin() {
+    togoLogin () {
       this.$router.push('/login')
     },
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
 }
 </script>
 
 <style>
-  body {
-    margin: 0px;
+  html, body {
+    margin: 0;
+    height: 100%;
   }
 
   .el-header, .el-footer {
@@ -151,32 +152,32 @@ export default {
     text-align: center;
     line-height: 60px;
   }
-  
+
   .el-aside {
     background-color: #D3DCE6;
     color: #333;
   }
-  
+
   .el-main {
     background-color: #E9EEF3;
     color: #333;
     text-align: center;
     line-height: 160px;
   }
-  
+
   .el-container {
     margin-bottom: 40px;
   }
-  
+
   .el-container:nth-child(5) .el-aside,
   .el-container:nth-child(6) .el-aside {
     line-height: 260px;
   }
-  
+
   .el-container:nth-child(7) .el-aside {
     line-height: 320px;
   }
-  
+
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     width: 210px;
     min-height: 400px;

@@ -2,8 +2,8 @@
    <el-row class="container">
     <el-col :span="24" class="header">
       <el-col :class="isCollapse?'logo-collapsed':'logo-expended'">
-        <img src="../assets/logo.png" style="width: 64px;height: 56px;float: left;" />
-        <p>ming-front</p>
+        <img src="../../assets/logo.png" style="width: 64px;height: 56px;float: left;" />
+        <p class="title">ming-front</p>
       </el-col>
       <el-col>
         <div class="menu-toggle" @click.prevent="collapse">
@@ -81,8 +81,9 @@
 </template>
 
 <style lang="scss">
-  body {
-    margin: 0px;
+  html, body {
+    margin: 0;
+    height: 100%;
 
     .container {
       .header {
@@ -114,6 +115,14 @@
           float: right;
           text-align: center;
           line-height: 56px;
+        }
+        .title {
+          display: inline-block;
+          margin: auto;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 56px;
+          vertical-align: center;
         }
       }
 
@@ -158,64 +167,64 @@
 </style>
 
 <script>
-  export default {
-    data() {
-      return {
-        isCollapse: false,
-        tableData: [{
-          date: '2016-05-03',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-02',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-04',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-01',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-08',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-06',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }, {
-          date: '2016-05-07',
-          name: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄'
-        }],
-        multipleSelection: []
-      };
+export default {
+  data () {
+    return {
+      isCollapse: false,
+      tableData: [{
+        date: '2016-05-03',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-02',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-04',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-01',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-08',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-06',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }, {
+        date: '2016-05-07',
+        name: '王小虎',
+        address: '上海市普陀区金沙江路 1518 弄'
+      }],
+      multipleSelection: []
+    }
+  },
+  methods: {
+    handleOpen (key, keyPath) {
+      console.log('hello')
     },
-    methods: {
-      handleOpen(key, keyPath) {
-        console.log("hello");
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      //折叠导航栏
-      collapse: function () {
-        this.isCollapse = !this.isCollapse;
-      },
-      //退出登录
-      loginout: function () {
-        this.$axios.get('http://localhost:8082/user')
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
+    },
+    // 折叠导航栏
+    collapse: function () {
+      this.isCollapse = !this.isCollapse
+    },
+    // 退出登录
+    loginout: function () {
+      this.$axios.get('http://localhost:8082/user')
         .then(function (response) {
           console.log(response)
         })
         .catch(function (error) {
           console.log(error)
         })
-        //this.$router.push('/login');
-      }
+        // this.$router.push('/login');
     }
   }
+}
 </script>

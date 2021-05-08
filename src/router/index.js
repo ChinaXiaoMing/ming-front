@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import index from '@/components/index'
 import login from '@/components/login'
-import demo from '@/components/demo'
-import layout from '@/components/layout'
+import layout from '@/layout/index'
+import home from '@/components/Home/layout'
 
 Vue.use(Router)
 
@@ -13,14 +11,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login',
-      name: 'HelloWorld',
-      component: HelloWorld
-    },
-    {
-      path: '/index',
-      name: 'index',
-      component: index
+      redirect: '/login'
     },
     {
       path: '/login',
@@ -28,14 +19,16 @@ export default new Router({
       component: login
     },
     {
-      path: '/demo',
-      name: 'demo',
-      component: demo
-    },
-    {
       path: '/layout',
       name: 'layout',
-      component: layout
+      component: layout,
+      children: [
+        {
+          path: '/home',
+          name: 'home',
+          component: home
+        }
+      ]
     }
   ]
 })
