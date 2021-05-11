@@ -60,7 +60,7 @@
           </div>
         </el-header>
         <el-main>
-          <router-view style="width: 100%;"/>
+          <router-view/>
         </el-main>
         <el-footer>Footer</el-footer>
       </el-container>
@@ -121,9 +121,8 @@ export default {
   .el-main {
     display: flex;
     justify-content: center;
-    align-items: center;
     color: #333;
-    background-color: #E9EEF3;
+    background-color: #fff;
   }
 
   .el-footer {
